@@ -4,16 +4,20 @@ import { galleryItems } from './gallery-items.js';
 
 const gallery = document.querySelector(".gallery");
 
+// create gallery 
+
 const markup = galleryItems
 .map((galleryItem) => `
-    <div class="gallery_item"> 
+    <li class="gallery_item"> 
         <a class ="gallery__link" href="${galleryItem.original}"> 
             <img class="gallery__image" src="${galleryItem.preview}" data-source="${galleryItem.original}" alt="${galleryItem.description}"> 
         </a> 
-    </div>`)
+    </li>`)
 .join("");
 
 gallery.insertAdjacentHTML("beforeend", markup);
+
+// open modal window 
 
 const zoomImage = (event) => {
   
@@ -32,6 +36,8 @@ const zoomImage = (event) => {
 }
 
 gallery.addEventListener('click', zoomImage, )
+
+// additional task 
 
 const escape = (event) => {
     event.preventDefault();
