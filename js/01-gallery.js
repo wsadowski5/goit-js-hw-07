@@ -29,33 +29,18 @@ const zoomImage = (event) => {
     } 
     
     const bigImg = event.target.dataset.source;
-    console.log(bigImg)
-    const instance = basicLightbox.create(`<img src="${bigImg}" width="800" height="600">`)
-    instance.show()
-
-}
-
-gallery.addEventListener('click', zoomImage, )
-
-// additional task 
-
-const escape = (event) => {
-    event.preventDefault();
-
-    const instance = basicLightbox
-    const visible = basicLightbox.visible();
-    console.log(visible)
-    if (visible === true){
-        console.log('escape clicked!!')
-        instance.close()
-        return
-    }
-
+    console.log(bigImg);
+    const instance = basicLightbox.create(`<img src="${bigImg}" width="800" height="600">`);
+    instance.show();
     
+    const escape = (event) => {
+        instance.close();
+        if (event.key === 'Escape') {
+            document.removeEventListener ('keydown', escape);
+        }
+    }
+    document.addEventListener ('keydown', escape);
+
 }
 
-
-document.addEventListener('keydown', escape)
-
-
-
+gallery.addEventListener('click', zoomImage)

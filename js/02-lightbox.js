@@ -14,25 +14,31 @@ const markup = galleryItems
 
 gallery.insertAdjacentHTML("beforeend", markup);
 
+const lightbox = new SimpleLightbox('.gallery a',{
+    captions : true,
+    captionsType : 'attr',
+    captionsData : 'alt',
+    captionDelay : '250'
+} )
 
-
-const zoomImage = (event) => {
+// const zoomImage = (event) => {
   
-    event.preventDefault();
+//     event.preventDefault();
   
-    if (event.target.nodeName !== "IMG"){
-        console.log('click na div !')
-    return;
-    } 
+//     if (event.target.nodeName !== "IMG"){
+//         console.log('click na div !')
+//     return;
+//     } 
         
-    var lightbox = new SimpleLightbox('.gallery a',{
-        captions : true,
-        captionsType : 'attr',
-        captionsData : 'alt',
-        captionDelay : '250'
-    } );
+//     const lightbox = new SimpleLightbox('.gallery a',{
+//         captions : true,
+//         captionsType : 'attr',
+//         captionsData : 'alt',
+//         captionDelay : '250'
+//     } );
     
-}
+// }
 
-gallery.addEventListener('click', zoomImage, )
+// gallery.addEventListener('click', zoomImage, )
+
 
